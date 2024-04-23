@@ -1,16 +1,20 @@
-# alex_news_api_f
+# **Flutter Clean Architecture** 
 
-A new Flutter project.
+# 使用API：
+News API
+https://newsapi.org/
 
-## Getting Started
+# 使用工具：
+* flutter_bloc
+* equatable
+* get_it
+* intl
+* floor
+* retrofit
+* flutter_hooks
+* cached_network_image
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Generator工具：
+* build_runner
+* retrofit_generator
+* floor_generator
