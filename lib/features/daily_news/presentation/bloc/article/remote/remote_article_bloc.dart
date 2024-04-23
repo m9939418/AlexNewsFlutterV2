@@ -7,8 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class RemoteArticleBloc extends Bloc<RemoteArticlesEvent, RemoteArticleState> {
   final GetArticleUseCase _getArticleUseCase;
 
-  RemoteArticleBloc(this._getArticleUseCase)
-      : super(const RemoteArticlesLoading()) {
+  RemoteArticleBloc(this._getArticleUseCase) : super(const RemoteArticlesLoading()) {
     on<GetArticles>(onGetArticles);
   }
 
@@ -23,6 +22,7 @@ class RemoteArticleBloc extends Bloc<RemoteArticlesEvent, RemoteArticleState> {
     }
 
     if (dataState is DataFailed) {
+      print(dataState.error!.message);
       emit(RemoteArticlesError(dataState.error!));
     }
   }
