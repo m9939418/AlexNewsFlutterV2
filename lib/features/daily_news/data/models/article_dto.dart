@@ -1,5 +1,10 @@
 import 'package:alex_news_api_f/features/daily_news/domain/entities/article.dart';
+import 'package:floor/floor.dart';
 
+@Entity(
+  tableName: 'article',
+  primaryKeys: ['id'],
+)
 class ArticleDto extends ArticleEntity {
   const ArticleDto({
     int? id,
@@ -10,16 +15,16 @@ class ArticleDto extends ArticleEntity {
     String? urlToImage,
     String? publishedAt,
     String? content,
-  }):super(
-    id: id,
-    author: author,
-    title: title,
-    description: description,
-    url: url,
-    urlToImage: urlToImage,
-    publishedAt: publishedAt,
-    content: content,
-  );
+  }) : super(
+          id: id,
+          author: author,
+          title: title,
+          description: description,
+          url: url,
+          urlToImage: urlToImage,
+          publishedAt: publishedAt,
+          content: content,
+        );
 
   factory ArticleDto.fromJson(Map<String, dynamic> json) => ArticleDto(
         author: json["author"] ?? "",
