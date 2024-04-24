@@ -1,5 +1,5 @@
 import 'package:alex_news_api_f/core/resources/data_state.dart';
-import 'package:alex_news_api_f/features/daily_news/domain/usecase/get_article.dart';
+import 'package:alex_news_api_f/features/daily_news/domain/usecase/get_article_use_case.dart';
 import 'package:alex_news_api_f/features/daily_news/presentation/bloc/article/remote/remote_article_event.dart';
 import 'package:alex_news_api_f/features/daily_news/presentation/bloc/article/remote/remote_article_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

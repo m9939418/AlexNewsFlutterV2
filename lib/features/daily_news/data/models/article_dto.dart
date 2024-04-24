@@ -35,4 +35,16 @@ class ArticleDto extends ArticleEntity {
         publishedAt: json["publishedAt"] ?? "",
         content: json["content"] ?? "",
       );
+
+  factory ArticleDto.fromEntity(ArticleEntity entity) {
+    return ArticleDto(
+        id: entity.id,
+        author: entity.author,
+        title: entity.title,
+        description: entity.description,
+        url: entity.url,
+        urlToImage: entity.urlToImage,
+        publishedAt: entity.publishedAt,
+        content: entity.content);
+  }
 }
