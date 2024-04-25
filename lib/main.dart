@@ -1,8 +1,9 @@
+import 'package:alex_news_api_f/config/routes/routes.dart';
 import 'package:alex_news_api_f/config/theme/app_theme.dart';
 import 'package:alex_news_api_f/di/injection_container.dart';
 import 'package:alex_news_api_f/features/daily_news/presentation/bloc/article/remote/remote_article_bloc.dart';
 import 'package:alex_news_api_f/features/daily_news/presentation/bloc/article/remote/remote_article_event.dart';
-import 'package:alex_news_api_f/features/daily_news/presentation/pages/home/daily_news.dart';
+import 'package:alex_news_api_f/features/daily_news/presentation/pages/home/daily_news_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,6 +14,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -22,7 +24,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: theme(),
-          home: const DailyNews()),
+          onGenerateRoute: AppRoutes.onGenerateRoutes,
+          home: const DailyNewsScreen()),
     );
   }
 }

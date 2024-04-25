@@ -6,11 +6,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 class ArticleWidget extends StatelessWidget {
   final ArticleEntity? article;
   final bool? isRemovable;
+  final void Function(ArticleEntity article)? onArticlePressed;
 
   const ArticleWidget({
     Key? key,
     this.article,
     this.isRemovable,
+    this.onArticlePressed,
   }) : super(key: key);
 
   @override
@@ -32,7 +34,11 @@ class ArticleWidget extends StatelessWidget {
     );
   }
 
-  void _onTap() {}
+  void _onTap() {
+    if (onArticlePressed != null) {
+      onArticlePressed!(article!);
+    }
+  }
 
   Widget _buildImage(BuildContext context) {
     return CachedNetworkImage(

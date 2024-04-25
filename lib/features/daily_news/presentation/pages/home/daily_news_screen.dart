@@ -1,3 +1,4 @@
+import 'package:alex_news_api_f/features/daily_news/domain/entities/article.dart';
 import 'package:alex_news_api_f/features/daily_news/presentation/bloc/article/remote/remote_article_bloc.dart';
 import 'package:alex_news_api_f/features/daily_news/presentation/bloc/article/remote/remote_article_state.dart';
 import 'package:alex_news_api_f/features/daily_news/presentation/widgets/article_tile.dart';
@@ -5,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DailyNews extends StatelessWidget {
-  const DailyNews({super.key});
+class DailyNewsScreen extends StatelessWidget {
+  const DailyNewsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,14 +48,23 @@ class DailyNews extends StatelessWidget {
             itemCount: state.articles!.length,
             itemBuilder: (context, index) {
               return ArticleWidget(
-                article: state.articles![index] ,
+                article: state.articles![index],
+                onArticlePressed: (article) => _onArticlePressed(context, article),
               );
             },
           );
         }
 
-        return SizedBox();
+        return const SizedBox();
       },
+    );
+  }
+
+  void _onArticlePressed(BuildContext context, ArticleEntity article) {
+    Navigator.pushNamed(
+      context,
+      '/ArticleDetails',
+      arguments: article,
     );
   }
 }
