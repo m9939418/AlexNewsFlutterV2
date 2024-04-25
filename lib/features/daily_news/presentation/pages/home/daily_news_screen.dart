@@ -12,12 +12,12 @@ class DailyNewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: _buildAppBar(context),
       body: _buildBody(),
     );
   }
 
-  _buildAppBar() {
+  _buildAppBar(BuildContext context) {
     return AppBar(
       title: const Text(
         'Daily News',
@@ -25,6 +25,15 @@ class DailyNewsScreen extends StatelessWidget {
           color: Colors.black,
         ),
       ),
+      actions: [
+        GestureDetector(
+          onTap: () => _onShowSavedArticlesScreen(context),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 14),
+            child: Icon(Icons.bookmark, color: Colors.black),
+          ),
+        ),
+      ],
     );
   }
 
@@ -65,6 +74,13 @@ class DailyNewsScreen extends StatelessWidget {
       context,
       '/ArticleDetails',
       arguments: article,
+    );
+  }
+
+  void _onShowSavedArticlesScreen(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      '/SavedArticles',
     );
   }
 }
